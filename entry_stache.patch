@@ -1,0 +1,22 @@
+diff --git a/src/Entries/Entry.php b/src/Entries/Entry.php
+index f6d4d6fcf..13f86b14a 100644
+--- a/src/Entries/Entry.php
++++ b/src/Entries/Entry.php
+@@ -600,12 +600,11 @@ class Entry implements Contract, Augmentable, Responsable, Localization, Protect
+ 
+     public function descendants()
+     {
+-        if (! $this->localizations) {
+-            $this->localizations = Facades\Entry::query()
+-                ->where('collection', $this->collectionHandle())
+-                ->where('origin', $this->id())->get()
+-                ->keyBy->locale();
+-        }
++
++        $this->localizations = Facades\Entry::query()
++            ->where('collection', $this->collectionHandle())
++            ->where('origin', $this->id())->get()
++            ->keyBy->locale();
+ 
+         $localizations = collect($this->localizations);
+ 
