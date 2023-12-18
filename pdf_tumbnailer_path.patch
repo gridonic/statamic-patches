@@ -1,0 +1,15 @@
+diff --git a/src/PdfToImage.php b/src/PdfToImage.php
+index 791c170..93b728b 100644
+--- a/src/PdfToImage.php
++++ b/src/PdfToImage.php
+@@ -15,8 +15,8 @@ class PdfToImage
+ 
+         if ($asset->isPdf()) {
+ 
+-            $imageFileName = $asset->filename() . '.jpg';
+-            $imageFilePath = storage_path($imageFileName);
++            $imageFileName = str_replace( '.pdf', '.jpg', $asset->path());
++            $imageFilePath = str_replace( '.pdf', '.jpg', $asset->resolvedPath());
+ 
+             $pdf = self::createImageFromPdf($asset->resolvedPath(), $imageFilePath, $pageNumber);
+ 
