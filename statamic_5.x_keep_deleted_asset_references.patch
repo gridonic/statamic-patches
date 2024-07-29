@@ -1,0 +1,15 @@
+diff --git a/src/Assets/Asset.php b/src/Assets/Asset.php
+index 938d53de9..b0faf511b 100644
+--- a/src/Assets/Asset.php
++++ b/src/Assets/Asset.php
+@@ -668,10 +668,6 @@ class Asset implements Arrayable, ArrayAccess, AssetContract, Augmentable, Conta
+ 
+         $this->clearCaches();
+ 
+-        if ($withEvents) {
+-            AssetDeleted::dispatch($this);
+-        }
+-
+         return $this;
+     }
+ 
